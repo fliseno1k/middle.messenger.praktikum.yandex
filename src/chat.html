@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/style.scss" />
+    <title>Sprint 1 - Chat App</title>
+</head>
+<body>
+    <div id="root">
+        <div class="container">
+            <div class="chat-layout">
+                <div class="chat-layout__sidebar">
+                    <div class="chat-layout__slot chat-layout__slot_sidebar-heading">
+                        <!-- TEMPLATE START -->
+                        <div class="chat-layout__heading">
+                            <div class="chat-layout__heading__content">
+                                <!-- TEMPLATE START -->
+                                    <div class="avatar avatar_size_base">
+                                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M28.2043 27.4149C28.7939 27.292 29.1449 26.6766 28.8743 26.1385C28.0311 24.4612 26.6127 22.9872 24.7616 21.8825C22.5349 20.5536 19.8066 19.8333 16.9999 19.8333C14.1932 19.8333 11.4649 20.5536 9.23818 21.8825C7.3871 22.9872 5.96864 24.4612 5.12542 26.1385C4.85489 26.6766 5.20585 27.292 5.79547 27.4149L8.83902 28.0492C14.2218 29.1709 19.778 29.1709 25.1607 28.0492L28.2043 27.4149Z" fill="#999999"/>
+                                            <circle cx="17.0001" cy="11.3333" r="7.08333" fill="#999999"/>
+                                        </svg>                                            
+                                    </div>
+                                <!-- TEMPLATE END -->
+                                <div class="chat-layout__heading__title">
+                                    <span>Мандалорец и Грогу</span>
+                                </div>
+                            </div>
+                            <div class="chat-layout__heading__control">
+                                <button type="button">
+                                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.0134 4.63423V4.63424L20.0524 5.02501C20.2158 6.65855 20.2975 7.47531 20.8503 7.7043C21.4031 7.93328 22.0384 7.41349 23.309 6.37392L23.6129 6.12526C24.2787 5.58054 24.6115 5.30819 24.9964 5.32738C25.3812 5.34658 25.6853 5.6507 26.2936 6.25896L27.7408 7.7062C28.3491 8.31446 28.6532 8.61858 28.6724 9.00342C28.6916 9.38825 28.4192 9.72113 27.8745 10.3869L27.6258 10.6909C26.5863 11.9614 26.0665 12.5967 26.2955 13.1496C26.5244 13.7024 27.3412 13.784 28.9747 13.9474L29.3656 13.9865C30.2215 14.0721 30.6495 14.1149 30.908 14.4006C31.1666 14.6863 31.1666 15.1164 31.1666 15.9766V18.0233C31.1666 18.8835 31.1666 19.3136 30.908 19.5993C30.6495 19.885 30.2215 19.9278 29.3656 20.0134H29.3656L28.9753 20.0524C27.3417 20.2157 26.525 20.2974 26.296 20.8502C26.067 21.403 26.5868 22.0383 27.6264 23.3089L27.6264 23.3089L27.8746 23.6123C28.4193 24.2781 28.6917 24.611 28.6725 24.9958C28.6533 25.3806 28.3492 25.6848 27.7409 26.293L26.2937 27.7403C25.6854 28.3485 25.3813 28.6526 24.9964 28.6718C24.6116 28.691 24.2787 28.4187 23.613 27.874L23.309 27.6253C22.0384 26.5857 21.4032 26.0659 20.8503 26.2949C20.2975 26.5239 20.2158 27.3407 20.0525 28.9742L20.0134 29.3656V29.3656C19.9278 30.2215 19.885 30.6495 19.5993 30.908C19.3136 31.1666 18.8835 31.1666 18.0233 31.1666H15.9766C15.1164 31.1666 14.6863 31.1666 14.4006 30.908C14.1149 30.6495 14.0721 30.2215 13.9865 29.3656L13.9474 28.9748C13.7841 27.3412 13.7024 26.5245 13.1496 26.2955C12.5967 26.0665 11.9614 26.5863 10.6909 27.6259L10.3868 27.8746C9.72107 28.4193 9.38819 28.6917 9.00336 28.6725C8.61852 28.6533 8.31439 28.3491 7.70614 27.7409L6.25889 26.2936C5.65064 25.6854 5.34651 25.3813 5.32732 24.9964C5.30813 24.6116 5.58048 24.2787 6.12519 23.613L6.37391 23.309C7.41348 22.0384 7.93327 21.4031 7.70429 20.8503C7.47531 20.2975 6.65854 20.2158 5.025 20.0524L4.63424 20.0133H4.63422C3.77831 19.9278 3.35034 19.885 3.0918 19.5993C2.83325 19.3136 2.83325 18.8835 2.83325 18.0233V15.9766C2.83325 15.1164 2.83325 14.6863 3.0918 14.4006C3.35035 14.1149 3.77831 14.0721 4.63424 13.9865L5.02553 13.9474C6.65907 13.784 7.47584 13.7023 7.70482 13.1495C7.93381 12.5967 7.41402 11.9614 6.37444 10.6908L6.37444 10.6908L6.12526 10.3863C5.58055 9.72049 5.30819 9.38761 5.32738 9.00278C5.34658 8.61794 5.65071 8.31382 6.25896 7.70556L7.70621 6.25831C8.31446 5.65006 8.61859 5.34593 9.00342 5.32674C9.38826 5.30755 9.72114 5.5799 10.3869 6.12461L10.6909 6.37336L10.6909 6.37336C11.9615 7.41294 12.5968 7.93272 13.1496 7.70374C13.7024 7.47476 13.7841 6.65799 13.9475 5.02445L13.9865 4.63425C14.0721 3.77831 14.1149 3.35035 14.4006 3.0918C14.6863 2.83325 15.1164 2.83325 15.9766 2.83325H18.0233C18.8835 2.83325 19.3136 2.83325 19.5993 3.0918C19.885 3.35034 19.9278 3.77831 20.0134 4.63423ZM16.9999 22.6666C20.1295 22.6666 22.6666 20.1295 22.6666 16.9999C22.6666 13.8703 20.1295 11.3333 16.9999 11.3333C13.8703 11.3333 11.3333 13.8703 11.3333 16.9999C11.3333 20.1295 13.8703 22.6666 16.9999 22.6666Z" fill="#999999"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- TEMPLATE END -->
+                    </div>
+                    <div class="chat-layout__slot chat-layout__slot_sidebar-contacts">
+                        <div class="chat-layout__contacts">
+                            <!-- TEMPLATE START -->
+                            <div class="searchbar">
+                                <form class="searchbar__form">
+                                    <button type="submit">
+                                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="15.5834" cy="15.5834" r="9.91667" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M28.3333 28.3333L24.0833 24.0833" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </button>
+                                    <input type="text" placeholder="Таков путь?">
+                                </form>
+                            </div>
+                            <!-- TEMPLATE END -->
+                            <!-- TEMPLATE START -->
+                            <div class="contacts-list">
+                                <ul>
+                                    <li>
+                                        <!-- TEMPLATE START -->
+                                        <div class="contact">
+                                            <div class="avatar avatar_size_base">
+                                                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M28.2043 27.4149C28.7939 27.292 29.1449 26.6766 28.8743 26.1385C28.0311 24.4612 26.6127 22.9872 24.7616 21.8825C22.5349 20.5536 19.8066 19.8333 16.9999 19.8333C14.1932 19.8333 11.4649 20.5536 9.23818 21.8825C7.3871 22.9872 5.96864 24.4612 5.12542 26.1385C4.85489 26.6766 5.20585 27.292 5.79547 27.4149L8.83902 28.0492C14.2218 29.1709 19.778 29.1709 25.1607 28.0492L28.2043 27.4149Z" fill="#999999"/>
+                                                    <circle cx="17.0001" cy="11.3333" r="7.08333" fill="#999999"/>
+                                                </svg>                                            
+                                            </div>
+                                            <div class="contact__content">
+                                                <div class="contact__top-line">
+                                                    <span class="contact__name">Ден Абрамов</span>
+                                                    <span class="contact__date">15:12</span>
+                                                </div>
+                                                <div class="contact__bottom-line">
+                                                    <span class="contact__message">
+                                                        Давай к нам в мету! Будем развивать реакт. Не хватает рук на реализацию новых фич
+                                                    </span>
+                                                    <div class="contact__unread">
+                                                        <span>4</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- TEMPLATE END -->
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- TEMPLATE END -->
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-layout__main">
+                    <div class="chat-layout__slot chat-layout__slot_main-heading">
+                        <!-- TEMPLATE START -->
+                        <div class="chat-layout__heading">
+                            <div class="chat-layout__heading__content">
+                                <!-- TEMPLATE START -->
+                                    <div class="avatar avatar_size_base">
+                                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M28.2043 27.4149C28.7939 27.292 29.1449 26.6766 28.8743 26.1385C28.0311 24.4612 26.6127 22.9872 24.7616 21.8825C22.5349 20.5536 19.8066 19.8333 16.9999 19.8333C14.1932 19.8333 11.4649 20.5536 9.23818 21.8825C7.3871 22.9872 5.96864 24.4612 5.12542 26.1385C4.85489 26.6766 5.20585 27.292 5.79547 27.4149L8.83902 28.0492C14.2218 29.1709 19.778 29.1709 25.1607 28.0492L28.2043 27.4149Z" fill="#999999"/>
+                                            <circle cx="17.0001" cy="11.3333" r="7.08333" fill="#999999"/>
+                                        </svg>                                            
+                                    </div>
+                                <!-- TEMPLATE END -->
+                                <div class="chat-layout__heading__title">
+                                    <span>Мандалорец и Грогу</span>
+                                </div>
+                            </div>
+                            <div class="chat-layout__heading__control">
+                                <button type="button">
+                                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.5835 11.3333L28.3335 11.3333" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M5.6665 22.6667L19.8332 22.6667" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <ellipse cx="9.9165" cy="11.3333" rx="4.25" ry="4.25" transform="rotate(90 9.9165 11.3333)" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <ellipse cx="24.0835" cy="22.6667" rx="4.25" ry="4.25" transform="rotate(90 24.0835 22.6667)" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>                                        
+                                </button>
+                            </div>
+                        </div>
+                        <!-- TEMPLATE END -->
+                    </div>
+                    <div class="chat-layout__slot chat-layout__slot_main-body">
+                        <div class="chat-layout__body"></div>
+                    </div>
+                    <div class="chat-layout__slot chat-layout__slot_main-editor">
+                        <!-- TEMPLATE START -->
+                        <div class="chat-layout__editor">
+                            <div class="chat-layout__editor__controls-group">
+                                <button type="button" class="chat-layout__editor__control">
+                                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17 8.5L17 25.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M25.5 17L8.5 17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>                                        
+                                </button>
+                            </div>
+                            <div class="chat-layout__editor__editable">
+                                <span contenteditable="true"></span>                                
+                            </div>
+                            <div class="chat-layout__editor__controls-group">
+                                <button type="button" class="chat-layout__editor__control">
+                                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.5227 18.063L8.52543 16.064L8.52542 16.064C6.17221 15.2796 4.99561 14.8874 4.99561 14.1666C4.99561 13.4458 6.17221 13.0536 8.52543 12.2692L24.5386 6.93151C26.1944 6.37958 27.0223 6.10362 27.4593 6.54063C27.8963 6.97765 27.6203 7.80554 27.0684 9.46133L21.7307 25.4745C20.9463 27.8277 20.5541 29.0043 19.8333 29.0043C19.1126 29.0043 18.7204 27.8277 17.936 25.4745L15.9369 19.4773L21.9571 13.457C22.3476 13.0665 22.3476 12.4334 21.9571 12.0428C21.5666 11.6523 20.9334 11.6523 20.5429 12.0428L14.5227 18.063Z" fill="white"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- TEMPLATE END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

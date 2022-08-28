@@ -1,0 +1,10 @@
+{{#>auth-form heading="Войдите, чтобы продолжить!" withFields=true}}
+    {{#*inline "fields"}}
+        {{> input id="login" name="login" type="text" placeholder="" label="Логин" }}
+        {{> input id="password" name="login" type="password" placeholder="" label="Пароль" }}
+    {{/inline}}
+    {{#*inline "controls"}}
+        {{> button type="submit" text="Войти" variant="filled" }}
+        {{> button link="true" href="/signup" text="Нет аккаунта?" variant="transparent" }}
+    {{/inline}}
+{{/auth-form}}
