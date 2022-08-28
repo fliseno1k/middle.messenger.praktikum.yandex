@@ -1,7 +1,7 @@
 // Register components
-import '../components/pages/auth/auth-form';
-import '../components/shared/button';
-import '../components/pages/auth/input';
+import '../../components/pages/auth/auth-form';
+import '../../components/shared/button';
+import '../../components/pages/auth/input';
 
 // Import page
 import template from './template.hbs';
