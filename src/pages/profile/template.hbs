@@ -1,0 +1,15 @@
+{{#> profile title="Профиль" withSecondary=true }}
+    {{#*inline "primary-fields-group"}}
+        {{>profile-field editable=true id="email" name="email" label="Почта" value="fliseno1k@gmail.com"}}
+        {{>profile-field editable=true id="login" name="login" label="Логин" value="fliseno1k"}}
+        {{>profile-field editable=true id="first_name" name="first_name" label="Имя" value="Алексей"}}
+        {{>profile-field editable=true id="second_name" name="second_name" label="Фамилия" value="Флис"}}
+        {{>profile-field editable=true id="display_name" name="display_name" label="Имя в чате" value="Леша"}}
+        {{>profile-field editable=true id="phone" name="phone" label="Номер телефона" value="+7 (924) 421-**-**"}}
+    {{/inline}}
+    {{#*inline "secondary-fields-group"}}
+        {{>profile-button label="Изменить номер телефона" variant="primary"}}
+        {{>profile-button label="Изменить пароль" variant="primary"}}
+        {{>profile-button label="Вернуться в чат" variant="danger"}}
+    {{/inline}}
+{{/profile}}

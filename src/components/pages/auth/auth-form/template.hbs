@@ -1,0 +1,17 @@
+<div class="auth-form">
+    <div class="auth-form__inner">
+        <div class="auth-form__heading">
+            <h3>{{heading}}</h3>
+        </div>
+        <form class="auth-form__form">
+            {{#if withFields}}
+                <div class="auth-form__fields">
+                    {{> fields}}
+                </div>
+            {{/if}}
+            <div class="auth-form__controls">
+                {{> controls}}
+            </div>
+        </form>
+    </div>
+</div>
