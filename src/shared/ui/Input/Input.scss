@@ -1,0 +1,31 @@
+.text-input-group {
+    position: relative;
+    width: 100%;
+    margin: 2rem 0;
+    height: 2.5rem;
+    border-bottom: 1px solid var(--color-ultramarine-blue);
+    font-weight: 500;
+
+    &--error {
+        border-color: var(--color-red);
+    }
+
+    &__label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: var(--color-spanish-gray);
+        font-size: 0.875rem;
+        transform: translateY(-100%);
+        transition: .3s ease;
+        pointer-events: none;
+    }
+
+    &__input {
+        width: 100%;
+        height: 100%;
+        font-size: inherit;
+        line-height: 100%;
+        font-size: 1.125rem;
+    }
+}

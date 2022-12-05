@@ -1,0 +1,21 @@
+.message {
+    max-width: 600px;
+    padding: 14px 14px 30px;
+    border-radius: 16px;
+    margin: 0;
+
+    &_recieved {
+        margin-right: auto;
+        background: var(--color-alabaster);
+    }
+
+    &_shipped {
+        margin-left: auto;
+        background: var(--color-hawkes-blue);
+    }
+
+    &__text {
+        font-size: 14px;
+        line-height: 21px;
+    }
+}
