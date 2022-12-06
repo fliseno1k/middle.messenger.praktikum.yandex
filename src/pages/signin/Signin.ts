@@ -22,13 +22,13 @@ const controls = [
 		text: 'Войти',
 		type: 'submit',
 		variant: 'contained',
-		style: 'reqular',
+		style: 'regular',
 	}),
 	new Button({
 		text: 'Нет аккаунта?',
 		href: '/signup',
 		variant: 'text',
-		style: 'reqular',
+		style: 'regular',
 	}),
 ];
 

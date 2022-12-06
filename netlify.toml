@@ -4,9 +4,3 @@
 
 [build.environment]
   NODE_VERSION = "16.11.1"
-
-[[redirects]]
-  from = "/"
-  to = "/index"
-  status = 301
-  force = true

@@ -55,13 +55,13 @@ const controls = [
 		text: 'Зарегестрироваться',
 		type: 'submit',
 		variant: 'contained',
-		style: 'reqular',
+		style: 'regular',
 	}),
 	new Button({
 		text: 'Есть аккаунт?',
 		href: '/signin',
 		variant: 'text',
-		style: 'reqular',
+		style: 'regular',
 	}),
 ];
 
