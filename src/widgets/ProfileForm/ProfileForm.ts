@@ -150,4 +150,3 @@ export class ProfileForm extends Block {
 		);
 	}
 }
-

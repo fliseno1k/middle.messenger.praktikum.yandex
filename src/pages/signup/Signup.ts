@@ -25,8 +25,8 @@ const fields = [
 		label: 'Имя',
 	}),
 	new Input({
-		id: 'last_name',
-		name: 'last_name',
+		id: 'second_name',
+		name: 'second_name',
 		type: 'text',
 		label: 'Фамилия',
 	}),
@@ -85,4 +85,3 @@ export class Signup extends Block {
 		});
 	}
 }
-

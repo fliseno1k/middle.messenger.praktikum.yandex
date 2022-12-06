@@ -11,34 +11,35 @@ type Options = {
 	data?: any;
 };
 
+type HTTPMethod = (url: string, options: Options) => Promise<unknown>;
+
 function queryStringify(data: object) {
 	const str = [];
 	for (const p in data) {
-		if (data.hasOwnProperty(p)) {
-			str.push(encodeURIComponent(p) + '=' + encodeURIComponent(data[p as keyof typeof data]));
-		}
+		str.push(encodeURIComponent(p) + '=' + encodeURIComponent(data[p as keyof typeof data]));
 	}
+
 	return '?' + str.join('&');
 }
 
 export class HTTPTransport {
-	get(url: string, options: Options) {
+	get: HTTPMethod = (url, options) => {
 		return this.request(url + queryStringify(options), { ...options, method: METHODS.GET });
-	}
+	};
 
-	put(url: string, options: Options) {
+	put: HTTPMethod = (url, options) => {
 		return this.request(url, { ...options, method: METHODS.PUT });
-	}
+	};
 
-	patch(url: string, options: Options) {
+	patch: HTTPMethod = (url, options) => {
 		return this.request(url, { ...options, method: METHODS.PATCH });
-	}
+	};
 
-	delete(url: string, options: Options) {
+	delete: HTTPMethod = (url, options) => {
 		return this.request(url, { ...options, method: METHODS.DELETE });
-	}
+	};
 
-	request(url: string, options: Options = { method: METHODS.GET }): Promise<XMLHttpRequest> {
+	request: HTTPMethod = (url, options = { method: METHODS.GET }) => {
 		const { method, data } = options;
 
 		return new Promise((resolve, reject) => {
@@ -59,5 +60,5 @@ export class HTTPTransport {
 				xhr.send(data);
 			}
 		});
-	}
+	};
 }

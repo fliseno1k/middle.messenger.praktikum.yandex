@@ -1,101 +1,88 @@
 import { defaultConfig } from './config';
-import type { 
-    FieldValidationResult, 
-    FormElement, 
-    UserInputElement, 
-    ValidationConfig, 
-    ValidationScheme 
-} from './types';
+import type { FieldValidationResult, FormElement, UserInputElement, ValidationConfig, ValidationScheme } from './types';
 
 const isFormElement = (element: FormElement | UserInputElement): element is FormElement => {
-    return element instanceof HTMLFormElement;
+	return element instanceof HTMLFormElement;
 };
-
 export class Validator {
+	private validationConfig: ValidationConfig;
 
-    private validationConfig: ValidationConfig;
+	constructor(validationConfig?: ValidationConfig) {
+		this.validationConfig = validationConfig || defaultConfig;
+	}
 
-    constructor(validationConfig?: ValidationConfig) {
-        this.validationConfig = validationConfig || defaultConfig;
-    }
+	public handleSubmit(
+		form: FormElement,
+		submitHandler: (data: Object) => void,
+		submitErrorHandler: (data: Object) => void
+	) {
+		const validationResult = this.validate(form);
 
-    public handleSubmit(
-        form: FormElement, 
-        submitHandler: (data: Object) => void, 
-        submitErrorHandler: (data: Object) => void
-    ) {
-        const validationResult = this.validate(form);
+		if (Object.keys(validationResult).length) {
+			submitErrorHandler(validationResult);
+		} else {
+			const object: { [key: string]: FormDataEntryValue } = {};
+			new FormData(form).forEach((value, key) => {
+				object[key] = value;
+			});
 
-        if (Object.keys(validationResult).length) {
-            submitErrorHandler(validationResult);
-    
-        } else {
-            const object = {};
-            new FormData(form).forEach((value, key) => {
-                object[key] = value;
-            });
+			submitHandler(object);
+		}
+	}
 
-            submitHandler(object);
-        }
-    }
+	public validate(element: FormElement | UserInputElement): Object {
+		let formData: FormData;
 
-    public validate(element: FormElement | UserInputElement): Object {
-        let formData: FormData;
+		if (isFormElement(element)) {
+			formData = new FormData(element);
+		} else {
+			formData = new FormData();
+			formData.append(element.name, element.value);
+		}
 
-        if (isFormElement(element)) {
-            formData = new FormData(element);
+		const validationResult: { [key: string]: string | boolean } = {};
 
-        } else {
-            formData = new FormData();
-            formData.append(element.name, element.value);
-        }
+		Array.from(formData.keys()).forEach(field => {
+			const result = this.validateSingleField(field, formData.get(field) as string);
 
-        const validationResult = {};
+			if (result.error) {
+				validationResult[field] = result.error;
+			}
+		});
 
-        Array.from(formData.keys()).forEach(field => {
-            const result = this.validateSingleField(field, formData.get(field) as string);
+		return validationResult;
+	}
 
-            if (result.error) {
-                validationResult[field] = result.error;
-            }
-        });
+	private validateSingleField(name: string, value: string): FieldValidationResult {
+		const fieldValidationScheme = this.validationConfig[name];
 
-        return validationResult;
-    }
+		if (!fieldValidationScheme) {
+			return {};
+		}
 
-    private validateSingleField(name: string, value: string): FieldValidationResult {
-        const fieldValidationScheme = this.validationConfig[name];
+		const isValid = [this.checkLength, this.checkPattern]
+			.map(func => func(value, fieldValidationScheme))
+			.every(v => !!v);
 
-        if (!fieldValidationScheme) {
-            return {};
-        }
+		let validationResult: FieldValidationResult = {};
+		if (!isValid) {
+			validationResult.error = fieldValidationScheme.errorMessage ?? true;
+		}
 
-        const isValid = [
-            this.checkLength, 
-            this.checkPattern
-        ]
-            .map(func => func(value, fieldValidationScheme))
-            .every(v => !!v);
+		return validationResult;
+	}
 
-        let validationResult: FieldValidationResult = {};
-        if (!isValid) {
-            validationResult.error = fieldValidationScheme.errorMessage ?? true;
-        }
+	private checkPattern(value: string, { pattern }: ValidationScheme) {
+		if (!pattern) {
+			return true;
+		}
 
-        return validationResult;
-    }
+		return !!value?.match(pattern);
+	}
 
-    private checkPattern(value: string, { pattern }: ValidationScheme) {
-        if (!pattern) {
-            return true;
-        }
+	private checkLength(value: string, { minLength, maxLength }: ValidationScheme) {
+		const [min, max] = [minLength ?? 0, maxLength ?? Number.MAX_SAFE_INTEGER];
 
-        return !!value?.match(pattern);
-    }
-
-    private checkLength(value: string, { minLength, maxLength }: ValidationScheme) {
-        const [min, max] = [minLength ?? 0, maxLength ?? Number.MAX_SAFE_INTEGER];
-
-        return min <= value?.length && value?.length <= max;
-    }
+		return min <= value?.length && value?.length <= max;
+	}
 }

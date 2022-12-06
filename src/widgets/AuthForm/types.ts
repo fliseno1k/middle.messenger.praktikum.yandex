@@ -7,4 +7,3 @@ export type AuthFormProps = {
 	controls?: Block[];
 	title: string;
 } & Props;
-

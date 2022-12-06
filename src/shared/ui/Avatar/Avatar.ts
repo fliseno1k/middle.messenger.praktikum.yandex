@@ -30,4 +30,3 @@ export class Avatar extends Block {
 		);
 	}
 }
-

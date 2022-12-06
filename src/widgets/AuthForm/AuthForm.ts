@@ -16,7 +16,7 @@ export class AuthForm extends Block {
 	protected componentDidMount(): void {
 		const validator = this.props.validator;
 
-		function focusoutHandler(e: Event) {
+		function focusoutHandler(this: Block, e: Event) {
 			const validationResult = validator.validate(e.target);
 			const keys = Object.keys(validationResult);
 
@@ -89,4 +89,3 @@ export class AuthForm extends Block {
 		);
 	}
 }
-

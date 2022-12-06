@@ -16,4 +16,3 @@
 	"stylelint.snippet": ["css", "scss", "less", "postcss"],
 	"stylelint.validate": ["css", "scss"]
 }
-

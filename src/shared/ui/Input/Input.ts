@@ -22,6 +22,9 @@ export class Input extends Block {
                     class="text-input-group__input"
                 />
                 <label for="{{id}}" class="text-input-group__label">{{label}}</label>
+				{{#if error}}
+					<span class="text-input-group__prompt">{{error}}</span>
+				{{/if}}
             </div>
         `,
 			{
@@ -36,4 +39,3 @@ export class Input extends Block {
 		);
 	}
 }
-

@@ -10,4 +10,3 @@ export type InputProps = {
 	disabled?: boolean;
 	error?: boolean;
 } & Props;
-

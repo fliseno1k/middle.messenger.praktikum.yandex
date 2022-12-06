@@ -27,4 +27,3 @@ export class NavigationPage extends Block {
 		});
 	}
 }
-
