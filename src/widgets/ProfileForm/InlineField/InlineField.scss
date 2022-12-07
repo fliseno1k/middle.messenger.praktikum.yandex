@@ -1,0 +1,18 @@
+.profile-field {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-bright-gray);
+
+    &__label {
+        font-size: 18px;
+    }
+
+    &__value {
+        background: transparent;
+        color: var(--color-spanish-gray);
+        font-size: 18px;
+        text-align: right;
+    }
+}

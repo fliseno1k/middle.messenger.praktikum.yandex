@@ -1,0 +1,65 @@
+@use '../../../../app/styles/mixins.scss';
+
+.chat-card {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background .3s ease;
+
+    &:hover {
+        background: var(--color-alice-blue);
+    }
+
+    &__content {
+        flex-grow: 1;
+        padding-left: 16px;
+    }
+
+    &__top-line {
+        display: flex;
+        overflow: hidden;
+        justify-content: space-between;
+    }
+
+    &__name {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    &__date {
+        margin-left: 10px;
+        color: var(--color-spanish-gray);
+        font-size: 14px;
+    }
+
+    &__bottom-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__message {
+        display: inline-block;
+        color: var(--color-spanish-gray);
+        font-size: 14px;
+
+        @include mixins.use-line-clamp(2);
+    }
+
+    &__unread {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        flex: none;
+        border-radius: 50%;
+        margin-left: 10px;
+        background: var(--color-ultramarine-blue);
+        color: var(--color-white);
+        font-size: 14px;
+        line-height: 24px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "extends": [
+        "stylelint-config-standard",
+        "stylelint-config-standard-scss",
+        "stylelint-config-idiomatic-order",
+        "stylelint-config-prettier"
+    ],
+    "rules": {
+        "color-hex-case": "lower",
+        "property-no-vendor-prefix": null
+    }
+}
